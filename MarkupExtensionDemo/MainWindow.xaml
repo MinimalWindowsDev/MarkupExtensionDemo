@@ -1,0 +1,27 @@
+﻿<Window x:Class="MarkupExtensionDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarkupExtensionDemo"
+        Title="Markup Extension Demo"
+        Height="200"
+        Width="400">
+    <StackPanel Margin="10">
+        <!-- Simple text example -->
+        <TextBlock Text="{local:FeatureCondition 
+                WhenEnabled='New Feature Enabled!',
+                WhenDisabled='Original Version'}"
+                   FontSize="20"
+                   Margin="0,0,0,20" />
+
+        <!-- Button example -->
+        <Button Content="{local:FeatureCondition 
+                WhenEnabled='Increment by 2',
+                WhenDisabled='Increment by 1'}"
+                Height="30"
+                Click="Button_Click" />
+
+        <!-- Counter display -->
+        <TextBlock Text="{Binding ClickCount, StringFormat='Click count: {0}'}"
+                   Margin="0,20,0,0" />
+    </StackPanel>
+</Window>
